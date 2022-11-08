@@ -21,17 +21,19 @@ const storeGetter = async (contactAttributes) => {
     
     return axios(config)
     .then(function (response) {
-      return response.data
-      // console.log(JSON.stringify(response.data['nearby-locations'][0].address.street));
 
+      if (response.results > 0) {
+        return response.data
+      } else {
+        console.log("Invalid zip code value, Store API returned zero results")
+      }
+      
     })
     .catch(function (error) {
       console.log(error); 
     });
 }; 
 
-
-// storeGetter()
 
 module.exports = {
   storeGetter,
