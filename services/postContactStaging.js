@@ -7,6 +7,7 @@ data.append('email', 'hhamed+phpendpoint@drift.com');
 data.append('id', '15887732083');
 data.append('postal_code', '94607');
 data.append('phone', '781-228-9425');
+// add a preffered store id with playbook
 data.append('store_id', '019');
 
 var config = {

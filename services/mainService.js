@@ -10,7 +10,7 @@ const mainService = async (convoId, authorId) => {
     await updateContact(authorId, orderStatus);
 
   } catch (err) {
-    console.log("Store info processing error: ");
+    console.log("mainService: Store info processing error: ");
     console.log(err);
   }
 };

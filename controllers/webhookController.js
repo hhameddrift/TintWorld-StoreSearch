@@ -6,15 +6,20 @@ const processWebhook = async(req, res) => {
     const convoId = req.body.data.conversationId
     const authorId = req.body.data.author.id;
 
-    if (type === "button_clicked" && button_body === "Show Results") {
+    //button field
+    //type === "button_clicked" && button_body === "I'm just browsing for now"
+
+    if (type === "button_clicked" && button_body === "Show Results") { 
+
+        // console.log("I have convo ID - > " + convoId + " and " + " authorId -> " + authorId)
         
         console.log("Acquiring an Store info! Preloading store info from store service.")
-      
+    //   debugger
         await mainService(convoId, authorId)
-
+// debugger
         res.sendStatus(200)
     } else {
-        res.status(500).send("Server Error")
+        res.status(500).send("processWebhook: Server Error")
     }
 }
 

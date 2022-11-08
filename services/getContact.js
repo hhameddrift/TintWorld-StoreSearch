@@ -1,9 +1,10 @@
 require('dotenv').config()
-const drift_token = process.env.DRIFT_TOKEN
+const DRIFT_TOKEN = "LehnYJDRNfvTAjZKCIJqH5uaCqdKiexD"
+// const DRIFT_TOKEN = process.env.DRIFT_TOKEN
 const axios = require('axios');
 const baseUrl = 'https://driftapi.com/contacts/'
 const headers = {
-    'Authorization': `Bearer ${drift_token}`,
+    'Authorization': `Bearer ${DRIFT_TOKEN}`,
     'Content-Type': 'application/json'
 }
 
