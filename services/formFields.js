@@ -4,7 +4,7 @@ const formFields = (contact, contactId ,storeIdCrm ) => {
         last_name: contact.last_name,
         email: contact.email,
         id: contactId.toString(),
-        postal_code: postal_code,
+        store_location: contact.store_location,
         phone: contact.phone,
         store_id: storeIdCrm
     }

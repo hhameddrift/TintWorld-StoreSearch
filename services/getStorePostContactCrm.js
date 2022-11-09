@@ -5,7 +5,7 @@ var FormData = require('form-data');
 const storeGetterCRM = async (contactAttributes) => {
   var data = new FormData();
 
-  const store_location = contactAttributes.postal_code
+  const store_location = contactAttributes.store_location
   // const store_location = "94607"
 
   data.append('location-search', `${store_location}`);
@@ -21,6 +21,7 @@ const storeGetterCRM = async (contactAttributes) => {
     
     return axios(config)
     .then(function (response) {
+      
       return response.data['nearby-locations'][0].distance.id
       // console.log(JSON.stringify(response.data['nearby-locations'][0].address.street));
 

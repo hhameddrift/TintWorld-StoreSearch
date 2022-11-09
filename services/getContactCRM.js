@@ -8,11 +8,15 @@ const headers = {
     'Content-Type': 'application/json'
 }
 
-const getAttributes = async (authorId) => {
+const getContact = async (contactId) => {
     return axios
-        .get(baseUrl + authorId, {headers: headers})
+        .get(baseUrl + contactId, {headers: headers})
         .then((res) => {
+            debugger
            return res.data.data.attributes;
+        //    return {id: res.data.data.id,
+        //            att:res.data.data.attributes     
+        // }
 
         }).catch(err => {
             console.log("Error locating contact attributes for contact ID: " + authorId);
@@ -26,5 +30,5 @@ const getAttributes = async (authorId) => {
 }
 
 module.exports = {
-    getAttributes
+    getContact
 }

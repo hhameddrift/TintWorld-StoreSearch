@@ -24,10 +24,10 @@ const updateContact = async (authorId, storeInfo) => {
           tw_store_1_website_url: storeInfo['nearby-locations'][0].websiteUrl,
           tw_store_1_directions_url: storeInfo['nearby-locations'][0].directionsURL,
 
-          // distance two digits
+          // distance two digits .split(".").slice(0, 2).join(".")
           
-          tw_store_1_distance_distance_kilometers: storeInfo['nearby-locations'][0].distance.distanceKilometers.split(".").slice(0, 2).join("."),
-          tw_store_1_distance_distance_miles: storeInfo['nearby-locations'][0].distance.distanceMiles.split(".").slice(0, 2).join("."),
+          tw_store_1_distance_distance_kilometers: storeInfo['nearby-locations'][0].distance.distanceKilometers,
+          tw_store_1_distance_distance_miles: storeInfo['nearby-locations'][0].distance.distanceMiles,
 
 
           tw_store_1_open_until: storeInfo['nearby-locations'][0].currentHours,
@@ -42,8 +42,8 @@ const updateContact = async (authorId, storeInfo) => {
           tw_store_2_directions_url:storeInfo['nearby-locations'][1].directionsURL,
 
           // distance two digits
-          tw_store_2_distance_distance_kilometers:storeInfo['nearby-locations'][1].distance.distanceKilometers.split(".").slice(0, 2).join("."),
-          tw_store_2_distance_distance_miles:storeInfo['nearby-locations'][1].distance.distanceMiles.split(".").slice(0, 2).join("."),
+          tw_store_2_distance_distance_kilometers:storeInfo['nearby-locations'][1].distance.distanceKilometers,
+          tw_store_2_distance_distance_miles:storeInfo['nearby-locations'][1].distance.distanceMiles,
 
 
           tw_store_2_open_until:storeInfo['nearby-locations'][1].currentHours,
@@ -59,8 +59,8 @@ const updateContact = async (authorId, storeInfo) => {
 
           // distance two digits
 
-          tw_store_3_distance_distance_kilometers:storeInfo['nearby-locations'][2].distance.distanceKilometers.split(".").slice(0, 2).join("."),
-          tw_store_3_distance_distance_miles:storeInfo['nearby-locations'][2].distance.distanceMiles.split(".").slice(0, 2).join("."),
+          tw_store_3_distance_distance_kilometers:storeInfo['nearby-locations'][2].distance.distanceKilometers,
+          tw_store_3_distance_distance_miles:storeInfo['nearby-locations'][2].distance.distanceMiles,
           tw_store_3_open_until:storeInfo['nearby-locations'][2].currentHours,
           
           tw_store_3_fulladdress:`${storeInfo}['nearby-locations']${[2]}.${address.street} , ${address.city} , ${address.region}, ${address.postalCode} `,

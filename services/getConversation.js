@@ -1,6 +1,7 @@
 require('dotenv').config()
 const DRIFT_TOKEN = "LehnYJDRNfvTAjZKCIJqH5uaCqdKiexD"
-// const DRIFT_TOKEN = process.env.DRIFT_TOKENconst baseUrl = "https://driftapi.com/conversations/";
+// const DRIFT_TOKEN = process.env.DRIFT_TOKEN
+const baseUrl = "https://driftapi.com/conversations/";
 const axios = require("axios");
 const headers = {
     Authorization: `Bearer ${DRIFT_TOKEN}`,
@@ -12,6 +13,7 @@ const getConversation = async (conversationId) => {
         .get(baseUrl + conversationId, { headers: headers })
         .then((res) => {
             let convoObject = res.data;
+            
             return convoObject;
         })
         .catch((err) => {

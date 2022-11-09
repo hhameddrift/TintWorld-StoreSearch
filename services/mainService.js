@@ -2,10 +2,14 @@ const { storeGetter } = require("./getStore");
 const { storeGetterCRM } = require("./getStorePostContactCrm");
 const { updateContact } = require("./updateContact");
 const { getAttributes } = require("./getContact");
-const {getConversation} = require("./getConversation")
-const {getContact} = require("./getContactCRM")
-const {isValid} = require("./isValidContact")
-
+const { getConversation } = require("./getConversation");
+const { getContact } = require("./getContactCRM");
+const { isValid } = require("./isValidContact");
+const { formFields } = require("./formFields");
+const { postContact } = require("./postContactStaging");
+const {setBoundary} = require("./setFormBoundary")
+const {setHeaders} = require("./setHeaders")
+const {formBody} = require("./createFromBody")
 
 
 
@@ -20,7 +24,6 @@ const mainService = async (convoId, authorId) => {
 
     // Update contact attributes with 3 stores information
     await updateContact(authorId, orderStatus);
-
   } catch (err) {
     console.log("mainService: Store info processing error: ");
     console.log(err);
@@ -30,37 +33,43 @@ const mainService = async (convoId, authorId) => {
 const postContactCRM = async (convoId) => {
   try {
     // retrive full conversation object
-    const convoObject = await getConversation(convoId)
+    const convoObject = await getConversation(convoId);
 
     // store contactId from the conversation object
-    const contactId = convoObject.data['contactId']
+    const contactId = convoObject.data["contactId"];
 
-    // get/store contact attributes 
-    const contact = await getContact(contactId)
+    // get/store contact attributes
+    const contact = await getContact(contactId);
 
-     // get storeId
-     const contactAttributes = await getAttributes(authorId);
-     const storeIdCrm = await storeGetterCRM(contactAttributes);
+    // get storeId
+    const contactAttributes = await getAttributes(contactId);
+    const storeIdCrm = await storeGetterCRM(contactAttributes);
 
     // Validate contact fields
-    const validated = isValid(contact, contactId ,storeIdCrm )
-
+    const validated = isValid(contact, contactId, storeIdCrm);
+    debugger;
     if (!validated.error) {
+      debugger;
+      const fields = formFields(contact, contactId, storeIdCrm);
+      debugger;
+      const boundary = setBoundary();
+      const headers = setHeaders(boundary);
+      const body = formBody(fields, boundary);
 
-      const fields = formFields(contact, contactId , storeIdCrm) 
+      debugger
+      const postTheData = await postContact(body, headers);
 
-      const postTheData = await postContact(fields)
-            console.log(postTheData)
+      // const postTheData = await postContact(fields);
+      debugger;
+      console.log(postTheData);
     }
-
   } catch (err) {
     console.log("mainService: Store info processing error: ");
     console.log(err);
   }
 };
 
-
 module.exports = {
   mainService,
-  postContactCRM
+  postContactCRM,
 };
