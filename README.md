@@ -50,21 +50,6 @@ Store the following variables to the Lambda runtime environment via Terraform co
 
 `DRIFT_TOKEN` - The Bearer Token generated when you installed the app to your Drift Org
 
-```
-atmos -e qa secret set google_credentials '{
-  "type": "service_account",
-  "project_id": "excellent-style-#######",
-  "private_key_id": "37352##########f20b94318a59b45312",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMII...OrqPZz4=\n-----END PRIVATE KEY-----\n",
-  "client_email": "translator-app-drift@excellent-style-#######.iam.gserviceaccount.com",
-  "client_id": "11649617974500##########",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/translator-app-drift%40excellent-style-########.iam.gserviceaccount.com"
-}'
-```
-
 
 ### Considerations
 To deploy this app, you are required to swap local tunneling with a public API Gateway "Webhook listener".
