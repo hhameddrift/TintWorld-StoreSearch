@@ -2,8 +2,10 @@ var axios = require("axios");
 var FormData = require("form-data");
 var data = new FormData();
 
+
+// sample of direct call to the CRM
 // const postContact = async (fields) => {
-//   debugger
+//    
 //   data.append('first_name', fields.first_name);
 //   data.append('last_name', fields.last_name);
 //   data.append('email', fields.email);
@@ -11,7 +13,7 @@ var data = new FormData();
 //   data.append('store_location', fields.store_location);
 //   data.append('phone', fields.phone);
 //   data.append('store_id', fields.store_id);
-//   debugger
+//    
 //   var config = {
 //     method: 'post',
 //     url: 'https://phpstack-818694-2811746.cloudwaysapps.com/drift',
@@ -24,7 +26,7 @@ var data = new FormData();
 
 //   axios(config)
 //   .then(function (response) {
-//     debugger
+//      
 //     console.log(JSON.stringify(response.data));
 //     return response.data
 //     // console.log(JSON.stringify(response.data));
@@ -34,6 +36,7 @@ var data = new FormData();
 //   });
 // }
 
+// form type of request to crmURL
 const crmUrl = "https://phpstack-818694-2811746.cloudwaysapps.com/drift";
 
 const postContact = async (body, headers) => {

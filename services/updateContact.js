@@ -11,7 +11,7 @@ const headers = {
 };
 
 const updateContact = async (authorId, storeInfo) => {
-  debugger
+   
   return axios
   
     .patch(

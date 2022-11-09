@@ -47,20 +47,20 @@ const postContactCRM = async (convoId) => {
 
     // Validate contact fields
     const validated = isValid(contact, contactId, storeIdCrm);
-    debugger;
+     ;
     if (!validated.error) {
-      debugger;
+       ;
       const fields = formFields(contact, contactId, storeIdCrm);
-      debugger;
+       ;
       const boundary = setBoundary();
       const headers = setHeaders(boundary);
       const body = formBody(fields, boundary);
 
-      debugger
+       
       const postTheData = await postContact(body, headers);
 
       // const postTheData = await postContact(fields);
-      debugger;
+       ;
       console.log(postTheData);
     }
   } catch (err) {

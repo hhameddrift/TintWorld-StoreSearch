@@ -12,7 +12,7 @@ const getContact = async (contactId) => {
     return axios
         .get(baseUrl + contactId, {headers: headers})
         .then((res) => {
-            debugger
+             
            return res.data.data.attributes;
         //    return {id: res.data.data.id,
         //            att:res.data.data.attributes     

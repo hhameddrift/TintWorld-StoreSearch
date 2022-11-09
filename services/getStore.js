@@ -22,11 +22,6 @@ const storeGetter = async (contactAttributes) => {
     return axios(config)
     .then(function (response) {
       return response.data
-    //   if (response) {
-        
-    //   } else {
-    //     console.log("Invalid zip code value, Store API returned zero results")
-    //   }
       
     })
     .catch(function (error) {

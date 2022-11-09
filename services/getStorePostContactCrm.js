@@ -23,16 +23,12 @@ const storeGetterCRM = async (contactAttributes) => {
     .then(function (response) {
       
       return response.data['nearby-locations'][0].distance.id
-      // console.log(JSON.stringify(response.data['nearby-locations'][0].address.street));
 
     })
     .catch(function (error) {
       console.log(error); 
     });
 }; 
-
-
-// storeGetter()
 
 module.exports = {
   storeGetterCRM,

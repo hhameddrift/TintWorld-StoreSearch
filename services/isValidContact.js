@@ -13,15 +13,15 @@ const schema = Joi.object({
 }).options({ stripUnknown: true });
 
 const isValid = (contact, contactId , storeIdCrm) => {
-    debugger
+     
   if (contact.crm_qualifier === true) {
-      debugger
+       
     console.log(schema.validate(contact));
-    debugger
+     
     return schema.validate(contact);
-    debugger
+     
   } else if (contact.crm_qualifier === false ||contact.crm_qualifier === isNullOrUndefined) {
-      debugger
+       
     console.log("The contact " + contactId + " is not qualified to be sent to CRM.");
     return {error: true,};
   } else {
