@@ -11,6 +11,7 @@ const headers = {
 };
 
 const updateContact = async (authorId, storeInfo) => {
+  debugger
   return axios
   
     .patch(
@@ -32,7 +33,7 @@ const updateContact = async (authorId, storeInfo) => {
 
           tw_store_1_open_until: storeInfo['nearby-locations'][0].currentHours,
           
-          tw_store_1_fulladdress:`${storeInfo}['nearby-locations']${[0]}.${address.street} , ${address.city} , ${address.region}, ${address.postalCode} `,
+          tw_store_1_fulladdress:storeInfo['nearby-locations'][0].address.street,
 
           tw_store_1_main_phone:storeInfo['nearby-locations'][0].mainPhone,
           tw_store_1_id:storeInfo['nearby-locations'][0].distance.id,
@@ -48,7 +49,7 @@ const updateContact = async (authorId, storeInfo) => {
 
           tw_store_2_open_until:storeInfo['nearby-locations'][1].currentHours,
           
-          tw_store_2_fulladdress:`${storeInfo}['nearby-locations']${[1]}.${address.street} , ${address.city} , ${address.region}, ${address.postalCode} `,
+          tw_store_2_fulladdress:storeInfo['nearby-locations'][1].address.street,
 
           tw_store_2_main_phone:storeInfo['nearby-locations'][1].mainPhone,
           tw_store_2_id:storeInfo['nearby-locations'][1].distance.id,
@@ -63,7 +64,7 @@ const updateContact = async (authorId, storeInfo) => {
           tw_store_3_distance_distance_miles:storeInfo['nearby-locations'][2].distance.distanceMiles,
           tw_store_3_open_until:storeInfo['nearby-locations'][2].currentHours,
           
-          tw_store_3_fulladdress:`${storeInfo}['nearby-locations']${[2]}.${address.street} , ${address.city} , ${address.region}, ${address.postalCode} `,
+          tw_store_3_fulladdress:storeInfo['nearby-locations'][2].address.street,
 
           tw_store_3_main_phone: storeInfo['nearby-locations'][2].mainPhone,
           tw_store_3_id:storeInfo['nearby-locations'][2].distance.id,
