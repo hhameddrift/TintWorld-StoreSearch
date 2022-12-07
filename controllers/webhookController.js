@@ -4,6 +4,7 @@ const {postContactCRM} = require("../services/mainService")
 
 
 const processWebhook = async(req, res) => {
+    console.log("Event: ", req);
     const type = req.body.type
     const button_body = req.body.data.body || null
 

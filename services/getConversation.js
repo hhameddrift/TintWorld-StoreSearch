@@ -1,14 +1,14 @@
 require('dotenv').config()
-const DRIFT_TOKEN = "LehnYJDRNfvTAjZKCIJqH5uaCqdKiexD"
-// const DRIFT_TOKEN = process.env.DRIFT_TOKEN
+const DRIFT_TOKEN = process.env.DRIFT_TOKEN
 const baseUrl = "https://driftapi.com/conversations/";
 const axios = require("axios");
 const headers = {
-    Authorization: `Bearer ${DRIFT_TOKEN}`,
+    "Authorization": `Bearer ${DRIFT_TOKEN}`,
     "Content-Type": "application/json",
 };
 
 const getConversation = async (conversationId) => {
+    console.log("HEADERS: ", headers)
     return axios
         .get(baseUrl + conversationId, { headers: headers })
         .then((res) => {
